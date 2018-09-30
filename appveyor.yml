@@ -21,13 +21,12 @@ before_build:
   - CD %APP_PATH%
   - SET OPENCV_DIR=%OPENCV_ROOT_PATH%\build\%ARCH%\vc14
   - SET QTDIR=C:\Qt\5.7\msvc2015_64
+  - echo C:\Qt
 
 build_script:
   - cd build
   - echo %OPENCV_DIR%
   - echo %QTDIR%
-  - dir %QTDIR%
-  - dir %OPENCV_DIR%
   - ps: $file = "$pwd\deploy.zip"
   - ps: (new-object System.Net.WebClient).Downloadfile("https://github.com/livecv/live-pm/archive/master.zip", $file)
   - ps: 7z x -y $file -o"."
